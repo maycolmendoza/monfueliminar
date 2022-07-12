@@ -33,26 +33,11 @@
 <!-- Your Plugin de chat code -->
 <div id="fb-customer-chat" class="fb-customerchat">
 </div>
-<script>
-    let box = document.querySelector("#preloader"),
-        btn = document.querySelector("#skip");
 
-    function fadeOut() {
-        box.classList.add("visuallyhidden");
-        box.addEventListener(
-            "transitionend",
-            function(e) {
-                box.classList.add("hidden");
-            }, {
-                capture: false,
-                once: true,
-                passive: false
-            }
-        );
-    }
-    btn.addEventListener("click", fadeOut, false);
-    setTimeout(fadeOut, 4000);
-</script>
+
+<body data-fade-in="true" role="main">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 <body data-fade-in="true" role="main">
     <div id="preloader" class="preloader-container">
@@ -65,6 +50,87 @@
     </div>
     <!-- partial -->
     <script src='https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js'></script>
+    <style>
+        .preloader-container {
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: auto;
+            overflow-y: scroll;
+            position: fixed;
+            z-index: 9000;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            background-color: #fff;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            overflow: hidden;
+            -webkit-transition: all 1s linear;
+            -o-transition: all 1s linear;
+            transition: all 1s linear;
+        }
+        
+        .preloader-container .animation {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+        
+        .preloader-container .animation #skip {
+            color: #20495a;
+            cursor: pointer;
+            font-family: montserrat, sans-serif;
+            font-size: 1.75em;
+            position: absolute;
+            margin: 0 auto;
+            bottom: 20vh;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .visuallyhidden {
+            opacity: 0;
+        }
+    </style>
+    <script>
+        let box = document.querySelector("#preloader"),
+            btn = document.querySelector("#skip");
+
+        function fadeOut() {
+            box.classList.add("visuallyhidden");
+            box.addEventListener(
+                "transitionend",
+                function(e) {
+                    box.classList.add("hidden");
+                }, {
+                    capture: false,
+                    once: true,
+                    passive: false
+                }
+            );
+        }
+        btn.addEventListener("click", fadeOut, false);
+        setTimeout(fadeOut, 4000);
+    </script>
+
 
 
     <!--fin btn sociales-->
